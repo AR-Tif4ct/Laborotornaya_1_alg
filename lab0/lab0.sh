@@ -161,7 +161,7 @@ grep -l -r -i -E "кост|наст" claude_monet/bar/ claude_monet/hall/bar_bac
 wc -l
 
 
-head -q -n 1 claude_monet/kitchen/hot_station/*_task && tail -q -n 1 claude_monet/kitchen/hot_station/*_task) 2>/dev/null | \
+(head -q -n 1 claude_monet/kitchen/hot_station/*_task && tail -q -n 1 claude_monet/kitchen/hot_station/*_task) 2>/dev/null | \
 grep -i -E "сеня|федя|продукт" | \
 sort -r
 
@@ -172,8 +172,8 @@ head -n 4 | \
 wc -w
 
 
-ls -liR | \ 
-grep "^[0-9]* \-[rwx-]*  *2 " | \ 
+ls -liR | \
+grep "^[0-9]* \-[rwx-]*  *2 " | \
 sort -k 1 -n
 
 ls -lR | \
