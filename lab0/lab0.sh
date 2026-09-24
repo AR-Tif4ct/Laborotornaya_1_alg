@@ -147,7 +147,7 @@ cat claude_monet/kitchen/hot_station/senya_task claude_monet/kitchen/hot_station
 cat claude_monet/hall/waiter_plan >> claude_monet/office/vika_summary
 mv claude_monet/locker_room/max_note claude_monet/kitchen/max_final_note
 
-#в этом пунте к ИИ было много вопросов с просьбой разъяснить то, да сё
+#в этом пунте к ИИ было много вопросов с просьбой разъяснить то, да сё. В итоге пошагово собирал "конструктор"
 ls -lR | \
 grep "^-" | \
 sort -k 5 -n -r
@@ -161,7 +161,7 @@ grep -l -r -i -E "кост|наст" claude_monet/bar/ claude_monet/hall/bar_bac
 wc -l
 
 
-(head -q -n 1 claude_monet/kitchen/hot_station/*_task && tail -q -n 1 claude_monet/kitchen/hot_station/*_task) 2>/dev/null | \
+(head -q -n 1 claude_monet/kitchen/hot_station/*_task && tail -q -n 1 claude_monet/kitchen/hot_station/*_task) | \
 grep -i -E "сеня|федя|продукт" | \
 sort -r
 
@@ -173,8 +173,10 @@ wc -w
 
 
 ls -liR | \
-grep "^[0-9]* \-[rwx-]*  *2 " | \
+grep " -" | \
+grep " 2 " | \
 sort -k 1 -n
+
 
 ls -lR | \
 grep "^l" | \
@@ -189,6 +191,6 @@ rm final_menu
 rm claude_monet/office/kitchen_access
 rm claude_monet/kitchen/hot_station/senya_task_copy
 rm claude_monet/locker_room/leva_note
-rmdir claude_monet/locker_room
+rm -rf claude_monet/locker_room
 rm claude_monet/kitchen/max_final_note
 rm -r claude_monet/hall/bar_backup
